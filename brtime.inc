@@ -87,9 +87,9 @@ forward BR_GetDate(&year=0, &month=0, &day=0);
 stock BR_GetDate(&year=0, &month=0, &day=0) {
 	brtime_rs = db_query(
 		brtime_db,
-		"SELECT strftime('%Y', 'now', '-3 hours') AS Year,"
-		"strftime('%m', 'now', '-3 hours') AS Month,"
-		"strftime('%d', 'now', '-3 hours') AS Day;"
+		"SELECT strftime('%Y', 'now', '-3 hours') AS Year, \
+		strftime('%m', 'now', '-3 hours') AS Month, \
+		strftime('%d', 'now', '-3 hours') AS Day;"
 	);
 	
 	year = db_get_field_int(brtime_rs, 0);
