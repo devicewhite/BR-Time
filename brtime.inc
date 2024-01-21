@@ -114,9 +114,9 @@ forward BR_GetTime(&hour=0, &minute=0, &second=0);
 stock BR_GetTime(&hour=0, &minute=0, &second=0) {
 	brtime_rs = db_query(
 		brtime_db,
-		"SELECT strftime('%H', 'now', '-3 hours') AS Hour,"
-		"strftime('%M', 'now', '-3 hours') AS Minute,"
-		"strftime('%S', 'now', '-3 hours') AS Second;"
+		"SELECT strftime('%H', 'now', '-3 hours') AS Hour, \
+		strftime('%M', 'now', '-3 hours') AS Minute, \
+		strftime('%S', 'now', '-3 hours') AS Second;"
 	);
 	
 	hour = db_get_field_int(brtime_rs, 0);
