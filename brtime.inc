@@ -95,6 +95,8 @@ stock BR_GetDate(&year=0, &month=0, &day=0) {
 	year = db_get_field_int(brtime_rs, 0);
 	month = db_get_field_int(brtime_rs, 1);
 	day = db_get_field_int(brtime_rs, 2);
+	db_free_result(brtime_rs);
+	
 	return ((gettime() - 10800) / 86400);
 }
 
@@ -120,5 +122,7 @@ stock BR_GetTime(&hour=0, &minute=0, &second=0) {
 	hour = db_get_field_int(brtime_rs, 0);
 	minute = db_get_field_int(brtime_rs, 1);
 	second = db_get_field_int(brtime_rs, 2);
+	db_free_result(brtime_rs);
+	
 	return (gettime() - 10800);
 }
